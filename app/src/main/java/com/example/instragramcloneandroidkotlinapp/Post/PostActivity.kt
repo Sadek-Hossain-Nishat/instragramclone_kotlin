@@ -68,13 +68,18 @@ class PostActivity : AppCompatActivity() {
         }
 
         binding.postButton.setOnClickListener {
-            Firebase.firestore.collection(USER_NODE).document(Firebase.auth.currentUser!!.uid).get()
+            Firebase.firestore.collection(USER_NODE).document(
+//                Firebase.auth.currentUser!!.uid
+            ).get()
                 .addOnSuccessListener {
                     var user = it.toObject<User>()
 
                     val post: Post = Post(
-                        postUrl = imageUrl!!, caption = binding.caption.editText?.text.toString(),
-                        name = user!!.name.toString(), time = System.currentTimeMillis().toString()
+                        postUrl = imageUrl!!,
+                        caption = binding.caption.editText?.text.toString(),
+//                        name = user!!.name.toString(),
+                        uid = Firebase.auth.currentUser!!.uid,
+                        time = System.currentTimeMillis().toString()
                     )
 
 

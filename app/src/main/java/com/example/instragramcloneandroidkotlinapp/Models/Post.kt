@@ -4,7 +4,7 @@ class Post {
 
     var postUrl:String=""
     var caption:String=""
-    var name:String=""
+    var uid:String=""
     var time:String=""
 
     constructor()
@@ -13,10 +13,10 @@ class Post {
         this.caption = caption
     }
 
-    constructor(postUrl: String, caption: String, name: String, time: String){
+    constructor(postUrl: String, caption: String, uid: String, time: String){
         this.postUrl = postUrl
         this.caption = caption
-        this.name = name
+        this.uid = uid
         this.time = time
 
 
